@@ -1339,6 +1339,7 @@ GameObject:
   - component: {fileID: 1278387701}
   - component: {fileID: 1278387704}
   - component: {fileID: 1278387703}
+  - component: {fileID: 1278387705}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -1423,8 +1424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3846e235f376840bad3090ee810532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  RotationSpeed: 40
   HorizontalBounds:
   - -2.5
   - 2.5
@@ -1492,6 +1491,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1278387705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278387700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bfb267b4fc02c42acdd3a1d826144a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipData: {fileID: 11400000, guid: 1fa15e9c529c5af4c8bd841cb59b3bd9, type: 2}
 --- !u!1 &1330129399
 GameObject:
   m_ObjectHideFlags: 0

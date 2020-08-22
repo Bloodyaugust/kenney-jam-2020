@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour {
-    public float MoveSpeed;
-    public float RotationSpeed;
     public float[] HorizontalBounds;
     public float[] VerticalBounds;
 
     private float horizontalMovement;
     private float moveRotation;
     private float verticalMovement;
+    private Ship ship;
 
     public void OnPlayerMovementLeftRight(InputAction.CallbackContext context) {
         if (context.performed || context.canceled) {
@@ -24,23 +23,27 @@ public class PlayerControl : MonoBehaviour {
             verticalMovement = context.ReadValue<float>();
         }
     }
+
+    void Awake() {
+        ship = GetComponent<Ship>();
+    }
     
     void Update() {
-        transform.Translate(new Vector3(horizontalMovement * Time.deltaTime * MoveSpeed, verticalMovement * Time.deltaTime * MoveSpeed, 0), Space.World);
+        transform.Translate(new Vector3(horizontalMovement * Time.deltaTime * ship.shipData.moveSpeed, verticalMovement * Time.deltaTime * ship.shipData.moveSpeed, 0), Space.World);
 
         if (horizontalMovement > 0) {
-            moveRotation += RotationSpeed * Time.deltaTime;
+            moveRotation += ship.shipData.rotationSpeed * Time.deltaTime;
         } else if (horizontalMovement < 0) {
-            moveRotation -= RotationSpeed * Time.deltaTime;
+            moveRotation -= ship.shipData.rotationSpeed * Time.deltaTime;
         } else {
-            if (Mathf.Abs(moveRotation) < 0.001f) {
+            if (Mathf.Abs(moveRotation) < ship.shipData.rotationSpeed * Time.deltaTime) {
                 moveRotation = 0;
             }
 
             if (moveRotation > 0) {
-                moveRotation -= (RotationSpeed * 2) * Time.deltaTime;
+                moveRotation -= (ship.shipData.rotationSpeed * 2) * Time.deltaTime;
             } else if (moveRotation < 0) {
-                moveRotation += (RotationSpeed * 2) * Time.deltaTime;
+                moveRotation += (ship.shipData.rotationSpeed * 2) * Time.deltaTime;
             }
         }
 

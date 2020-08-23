@@ -25,7 +25,8 @@ public class UIController : Singleton<UIController> {
 
     public void ResetStore() {
         Store = new Dictionary<string, dynamic>() {
-            {"GameState", GameState.Menu}
+            {"GameState", GameState.Menu},
+            {"Score", 0}
         };
     }
 
@@ -40,7 +41,6 @@ public class UIController : Singleton<UIController> {
     }
 
     void Awake() {
-        // SceneManager.LoadScene("Scenes/Basic1v1", LoadSceneMode.Additive);
         DontDestroyOnLoad(gameObject);
         ResetStore();
     }

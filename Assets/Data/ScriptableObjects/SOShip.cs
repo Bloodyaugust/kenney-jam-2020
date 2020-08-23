@@ -3,6 +3,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Ship", order = 1)]
 public class SOShip : ScriptableObject {
+    public int score;
     public float collisionDamage;
     public float health;
     public float moveSpeed;

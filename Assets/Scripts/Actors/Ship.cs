@@ -15,6 +15,7 @@ public class Ship : MonoBehaviour {
     private ScrollDown scrollDown;
     private ShipState state;
     private SpriteRenderer spriteRenderer;
+    private UIController uiController;
 
     public void Damage(float amount) {
         health -= amount;
@@ -22,6 +23,7 @@ public class Ship : MonoBehaviour {
         int newSpriteIndex = (shipData.sprites.Length - 2) - (int)Mathf.Lerp(0, shipData.sprites.Length - 2, health / shipData.health);
 
         if (health <= 0) {
+            uiController.SetValue("Score", uiController.Store["Score"] + shipData.score);
             state = ShipState.Dead;
             newSpriteIndex = shipData.sprites.Length - 1;
         }
@@ -38,6 +40,7 @@ public class Ship : MonoBehaviour {
         playerControl = GetComponent<PlayerControl>();
         scrollDown = GetComponent<ScrollDown>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        uiController = UIController.Instance;
 
         spriteRenderer.sprite = shipData.sprites[0];
     }

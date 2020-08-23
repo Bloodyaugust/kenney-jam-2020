@@ -13,6 +13,10 @@ public class Projectile : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    void OnCollisionEnter2D(Collision2D collision) {
+        Destroy(gameObject);
+    }
+
     void Update() {
         transform.Translate(Vector3.right * projectileData.speed * Time.deltaTime, Space.Self);
     }

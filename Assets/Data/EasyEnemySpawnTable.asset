@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff6694f6b77ef7479fb7af03d545529, type: 3}
+  m_Name: EasyEnemySpawnTable
+  m_EditorClassIdentifier: 
+  maxIndex: 12
+  spawnPrefabs:
+  - {fileID: 7341711670703079740, guid: 6121065b6021aad4e860ebb801911688, type: 3}
+  - {fileID: 1288372233055041709, guid: 54eea947509aad04cb4e1883c0655956, type: 3}
+  spawnRanges:
+  - Range: 000000000b000000
+  - Range: 0b0000000f000000

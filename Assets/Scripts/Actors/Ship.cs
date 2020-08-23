@@ -11,6 +11,8 @@ public class Ship : MonoBehaviour {
     public SOShip shipData;
 
     private float health;
+    private PlayerControl playerControl;
+    private ScrollDown scrollDown;
     private ShipState state;
     private SpriteRenderer spriteRenderer;
 
@@ -26,16 +28,30 @@ public class Ship : MonoBehaviour {
         }
     }
 
+    public ShipState GetState() {
+        return state;
+    }
+
     void Awake() {
         health = shipData.health;
+        playerControl = GetComponent<PlayerControl>();
+        scrollDown = GetComponent<ScrollDown>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.sprite = shipData.sprites[0];
     }
 
+    void OnCollisionEnter2D(Collision2D collision) {
+        Ship collidingShip = collision.gameObject.GetComponent<Ship>();
+
+        if (collidingShip != null && state != ShipState.Dead) {
+            collidingShip.Damage(shipData.collisionDamage);
+        }
+    }
+
     void Update() {
-        if (state == ShipState.Dead) {
-            Destroy(gameObject);
+        if (state == ShipState.Dead && playerControl == null) {
+            scrollDown.enabled = true;
         }
     }
 }

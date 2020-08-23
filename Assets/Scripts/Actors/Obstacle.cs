@@ -10,6 +10,7 @@ public class Obstacle : MonoBehaviour {
 
         if (collidingShip != null) {
             collidingShip.Damage(obstacleData.damage);
+            Destroy(gameObject);
         }
     }
 }

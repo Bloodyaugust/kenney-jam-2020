@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9171fbd83c0f3f48befe88726cf00a2, type: 3}
-  m_Name: PlayerShip
+  m_Name: SmallDinghy
   m_EditorClassIdentifier: 
-  collisionDamage: 10
-  health: 5
-  moveSpeed: 4
-  rotationSpeed: 40
+  collisionDamage: 1
+  health: 1
+  moveSpeed: 2
+  rotationSpeed: 0
   sprites:
-  - {fileID: 21300000, guid: 4a5ff02753545734ca0e9235d3a21e4a, type: 3}
-  - {fileID: 21300000, guid: c87cd4a79e74568489460dceaabd84d1, type: 3}
-  - {fileID: 21300000, guid: 23a53962bb1764c4a94730d5f22e2637, type: 3}
-  - {fileID: 21300000, guid: 298b43b998be5824e9fedcd4e0c8e7e0, type: 3}
+  - {fileID: 21300000, guid: 2be2eff87612f7844bc6dfab85f75172, type: 3}

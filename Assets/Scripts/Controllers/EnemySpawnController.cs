@@ -25,7 +25,7 @@ public class EnemySpawnController : MonoBehaviour {
             RangeArray range = spawnTable.spawnRanges[i];
 
             if (result >= range.Range[0] && result <= range.Range[1]) {
-                GameObject newEnemy = Instantiate(spawnTable.spawnPrefabs[i], new Vector3(Random.Range(-2.5f, 2.5f), 7.5f, 0), Quaternion.identity);
+                GameObject newEnemy = Instantiate(spawnTable.spawnPrefabs[i], new Vector3(Random.Range(-2.5f, 2.5f), 7.5f, 0), spawnTable.spawnPrefabs[i].transform.rotation);
                 break;
             }
         }

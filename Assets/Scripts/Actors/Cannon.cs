@@ -15,6 +15,11 @@ public class Cannon : MonoBehaviour {
     private float timeToFire;
     private float timeToReload;
     private int clipRemaining;
+    private Ship ship;
+
+    void Awake() {
+        ship = GetComponentInParent<Ship>();
+    }
 
     void Fire() {
         Projectile projectile = Instantiate(ProjectilePrefab, transform.position, transform.rotation).GetComponent<Projectile>();
@@ -46,19 +51,21 @@ public class Cannon : MonoBehaviour {
     }
 
     void Update() {
-        if (state == CannonState.Firing) {
-            timeToFire -= Time.deltaTime;
+        if (ship.GetState() != ShipState.Dead) {
+            if (state == CannonState.Firing) {
+                timeToFire -= Time.deltaTime;
 
-            if (timeToFire <= 0) {
-                Fire();
+                if (timeToFire <= 0) {
+                    Fire();
+                }
             }
-        }
 
-        if (state == CannonState.Reloading) {
-            timeToReload -= Time.deltaTime;
+            if (state == CannonState.Reloading) {
+                timeToReload -= Time.deltaTime;
 
-            if (timeToReload <= 0) {
-                ReloadEnd();
+                if (timeToReload <= 0) {
+                    ReloadEnd();
+                }
             }
         }
     }

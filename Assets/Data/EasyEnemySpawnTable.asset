@@ -16,6 +16,8 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 7341711670703079740, guid: 6121065b6021aad4e860ebb801911688, type: 3}
   - {fileID: 1288372233055041709, guid: 54eea947509aad04cb4e1883c0655956, type: 3}
+  - {fileID: 8664304225078903110, guid: 2deb54d79c2edfe43aa8a6c903f85195, type: 3}
   spawnRanges:
-  - Range: 000000000b000000
-  - Range: 0b0000000f000000
+  - Range: 0000000006000000
+  - Range: 0c0000000f000000
+  - Range: 070000000b000000

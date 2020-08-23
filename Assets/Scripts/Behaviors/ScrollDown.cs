@@ -6,6 +6,6 @@ public class ScrollDown : MonoBehaviour {
     public float ScrollSpeed;
 
     void Update() {
-        transform.Translate(transform.up * -1 * Time.deltaTime);
+        transform.Translate(Vector3.down * Time.deltaTime, Space.World);
     }
 }

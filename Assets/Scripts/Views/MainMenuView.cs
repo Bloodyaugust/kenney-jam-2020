@@ -5,12 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenuView : MonoBehaviour {
+    public UIController uiController;
+
     new private Animation animation;
     private AnimationState mainMenuAnimation;
     private bool shown;
     private Button playButton;
     private RectTransform view;
-    private UIController uiController;
 
     public void OnItchButtonClicked() {
         Application.OpenURL("https://synsugarstudio.itch.io/");
@@ -24,7 +25,6 @@ public class MainMenuView : MonoBehaviour {
         animation = GetComponent<Animation>();
         mainMenuAnimation = animation["MainMenuAnimation"];
         playButton = transform.Find("PlayButton").GetComponent<Button>();
-        uiController = UIController.Instance;
         view = GetComponent<RectTransform>();
 
         playButton.onClick.AddListener(OnPlayButtonClicked);

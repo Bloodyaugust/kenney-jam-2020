@@ -28,6 +28,9 @@ public class UIController : Singleton<UIController> {
             {"GameState", GameState.Menu},
             {"Score", 0}
         };
+
+        UpdateValue("GameState");
+        UpdateValue("Score");
     }
 
     public void SetValue(string key, dynamic value) {

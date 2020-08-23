@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public enum ShipState {
 }
 
 public class Ship : MonoBehaviour {
+    public event Action Died;
+
     public SOShip shipData;
 
     private float health;
@@ -26,6 +29,8 @@ public class Ship : MonoBehaviour {
             uiController.SetValue("Score", uiController.Store["Score"] + shipData.score);
             state = ShipState.Dead;
             newSpriteIndex = shipData.sprites.Length - 1;
+
+            Died?.Invoke();
         }
 
         spriteRenderer.sprite = shipData.sprites[newSpriteIndex];
@@ -33,6 +38,12 @@ public class Ship : MonoBehaviour {
 
     public ShipState GetState() {
         return state;
+    }
+
+    public void Reset() {
+        health = shipData.health;
+        spriteRenderer.sprite = shipData.sprites[0];
+        state = ShipState.Idle;
     }
 
     void Awake() {

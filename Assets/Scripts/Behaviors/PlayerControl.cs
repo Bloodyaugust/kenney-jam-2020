@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ public class PlayerControl : MonoBehaviour {
     private float moveRotation;
     private float verticalMovement;
     private Ship ship;
+    private UIController uiController;
 
     public void OnPlayerMovementLeftRight(InputAction.CallbackContext context) {
         if (context.performed || context.canceled) {
@@ -26,6 +28,22 @@ public class PlayerControl : MonoBehaviour {
 
     void Awake() {
         ship = GetComponent<Ship>();
+        uiController = UIController.Instance;
+
+        ship.Died += OnDied;
+        uiController.StoreUpdated += OnStoreUpdate;
+    }
+
+    void OnDied() {
+        uiController.SetValue("GameState", GameState.Menu);
+    }
+
+    void OnStoreUpdate(string storeKey) {
+        if (storeKey == "GameState") {
+            if (uiController.Store[storeKey] == GameState.Playing) {
+                ship.Reset();
+            }
+        }
     }
     
     void Update() {

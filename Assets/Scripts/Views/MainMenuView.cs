@@ -41,7 +41,7 @@ public class MainMenuView : MonoBehaviour {
 
     void OnPlayButtonClicked() {
         uiController.ResetStore();
-        uiController.SetValue("GameState", GameState.Loading);
+        uiController.SetValue("GameState", GameState.Playing);
     }
 
     void OnStoreUpdated(string storeKey) {

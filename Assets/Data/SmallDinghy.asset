@@ -18,3 +18,4 @@ MonoBehaviour:
   rotationSpeed: 0
   sprites:
   - {fileID: 21300000, guid: 2be2eff87612f7844bc6dfab85f75172, type: 3}
+  - {fileID: 21300000, guid: 6a68be60341d59d42bfd165324698c0e, type: 3}

@@ -29,7 +29,9 @@ public class PlayerControl : MonoBehaviour {
     }
     
     void Update() {
-        transform.Translate(new Vector3(horizontalMovement * Time.deltaTime * ship.shipData.moveSpeed, verticalMovement * Time.deltaTime * ship.shipData.moveSpeed, 0), Space.World);
+        if (ship.GetState() != ShipState.Dead) {
+            transform.Translate(new Vector3(horizontalMovement * Time.deltaTime * ship.shipData.moveSpeed, verticalMovement * Time.deltaTime * ship.shipData.moveSpeed, 0), Space.World);
+        }
 
         if (horizontalMovement > 0) {
             moveRotation += ship.shipData.rotationSpeed * Time.deltaTime;
@@ -50,6 +52,9 @@ public class PlayerControl : MonoBehaviour {
         moveRotation = Mathf.Clamp(moveRotation, -20, 20);
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, HorizontalBounds[0], HorizontalBounds[1]), Mathf.Clamp(transform.position.y, VerticalBounds[0], VerticalBounds[1]), transform.position.z);
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90 - moveRotation));
+
+        if (ship.GetState() != ShipState.Dead) {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90 - moveRotation));
+        }
     }
 }

@@ -18,6 +18,7 @@ public class Cannon : MonoBehaviour {
 
     void Fire() {
         Projectile projectile = Instantiate(ProjectilePrefab, transform.position, transform.rotation).GetComponent<Projectile>();
+        projectile.gameObject.layer = gameObject.layer;
         projectile.Initialize(cannonData.projectile);
 
         clipRemaining--;

@@ -6,7 +6,16 @@ public class EnemySpawnController : MonoBehaviour {
     public float SpawnInterval;
     public SOEnemySpawnTable spawnTable;
 
+    private bool spawning;
+    private UIController uiController;
+
     float timeToSpawn;
+
+    void Awake() {
+        uiController = UIController.Instance;
+
+        uiController.StoreUpdated += OnStoreUpdated;
+    }
 
     int Roll(int[] dice) {
         int accumulator = 0;
@@ -16,6 +25,16 @@ public class EnemySpawnController : MonoBehaviour {
         }
 
         return accumulator;
+    }
+
+    void OnStoreUpdated(string storeKey) {
+        if (storeKey == "GameState") {
+            if (uiController.Store[storeKey] == GameState.Menu) {
+                spawning = false;
+            } else {
+                spawning = true;
+            }
+        }
     }
 
     void Spawn() {
@@ -36,12 +55,14 @@ public class EnemySpawnController : MonoBehaviour {
     }
 
     void Update() {
-        timeToSpawn -= Time.deltaTime;
+        if (spawning) {
+            timeToSpawn -= Time.deltaTime;
 
-        if (timeToSpawn <= 0) {
-            timeToSpawn = SpawnInterval;
+            if (timeToSpawn <= 0) {
+                timeToSpawn = SpawnInterval;
 
-            Spawn();
+                Spawn();
+            }
         }
     }
 }

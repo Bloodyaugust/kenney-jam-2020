@@ -9,6 +9,7 @@ public class RangeArray {
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Enemy Spawn Table", order = 1)]
 public class SOEnemySpawnTable : ScriptableObject {
     public int maxIndex;
+    public int[] dice;
     public GameObject[] spawnPrefabs;
     public RangeArray[] spawnRanges;
 }

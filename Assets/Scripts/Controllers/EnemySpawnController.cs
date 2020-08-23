@@ -19,7 +19,7 @@ public class EnemySpawnController : MonoBehaviour {
     }
 
     void Spawn() {
-        int result = Mathf.Clamp(Roll(new int[3] { 6, 6, 3 }), 0, spawnTable.maxIndex);
+        int result = Mathf.Clamp(Roll(spawnTable.dice), 0, spawnTable.maxIndex);
 
         for (int i = 0; i < spawnTable.spawnRanges.Length; i++) {
             RangeArray range = spawnTable.spawnRanges[i];

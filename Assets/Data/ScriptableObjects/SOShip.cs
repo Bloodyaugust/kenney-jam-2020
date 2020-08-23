@@ -6,4 +6,5 @@ public class SOShip : ScriptableObject {
     public float health;
     public float moveSpeed;
     public float rotationSpeed;
+    public Sprite[] sprites;
 }

@@ -12,9 +12,14 @@ public class Ship : MonoBehaviour {
 
     private float health;
     private ShipState state;
+    private SpriteRenderer spriteRenderer;
 
     public void Damage(float amount) {
         health -= amount;
+
+        int newSpriteIndex = (shipData.sprites.Length - 1) - (int)Mathf.Lerp(0, shipData.sprites.Length - 1, health / shipData.health);
+
+        spriteRenderer.sprite = shipData.sprites[newSpriteIndex];
 
         if (health <= 0) {
             state = ShipState.Dead;
@@ -23,6 +28,9 @@ public class Ship : MonoBehaviour {
 
     void Awake() {
         health = shipData.health;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = shipData.sprites[0];
     }
 
     void Update() {

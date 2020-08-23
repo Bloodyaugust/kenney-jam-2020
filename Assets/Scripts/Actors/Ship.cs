@@ -19,13 +19,14 @@ public class Ship : MonoBehaviour {
     public void Damage(float amount) {
         health -= amount;
 
-        int newSpriteIndex = (shipData.sprites.Length - 1) - (int)Mathf.Lerp(0, shipData.sprites.Length - 1, health / shipData.health);
-
-        spriteRenderer.sprite = shipData.sprites[newSpriteIndex];
+        int newSpriteIndex = (shipData.sprites.Length - 2) - (int)Mathf.Lerp(0, shipData.sprites.Length - 2, health / shipData.health);
 
         if (health <= 0) {
             state = ShipState.Dead;
+            newSpriteIndex = shipData.sprites.Length - 1;
         }
+
+        spriteRenderer.sprite = shipData.sprites[newSpriteIndex];
     }
 
     public ShipState GetState() {

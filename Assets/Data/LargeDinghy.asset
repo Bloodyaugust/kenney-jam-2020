@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9171fbd83c0f3f48befe88726cf00a2, type: 3}
+  m_Name: LargeDinghy
+  m_EditorClassIdentifier: 
+  collisionDamage: 2
+  health: 2
+  moveSpeed: 1.75
+  rotationSpeed: 0
+  sprites:
+  - {fileID: 21300000, guid: 700722bb233c6054eaf8b2f2f7948c0c, type: 3}
+  - {fileID: 21300000, guid: d0f8608be7f55384a8dd9adba97b6a0f, type: 3}

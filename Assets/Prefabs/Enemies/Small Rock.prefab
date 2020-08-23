@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8638978010366633054}
   - component: {fileID: 2722646281130271829}
   - component: {fileID: 6798027555612761621}
+  - component: {fileID: 8602971056784280183}
   m_Layer: 9
   m_Name: Small Rock
   m_TagString: Untagged
@@ -147,3 +148,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e03e4fed12f2c547a85e938709532d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8602971056784280183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341711670703079740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27226e3730cd3047abfd893d4ac7eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleData: {fileID: 11400000, guid: feaf3614fdf52604cbbbbd136202762f, type: 2}
